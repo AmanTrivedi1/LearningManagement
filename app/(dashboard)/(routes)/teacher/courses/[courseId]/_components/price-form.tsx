@@ -14,29 +14,32 @@ import {
 } from "@/components/ui/form";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import { PenIcon } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Textarea } from "@/components/ui/textarea";
+import { Course } from "@prisma/client";
+import { Input } from "@/components/ui/input";
+import { formatPrice } from "@/lib/format";
 
-interface TitleFormProps {
-  initialData: {
-    title: string;
-  };
+interface PriceFormProps {
+  initialData: Course;
   courseId: string;
 }
 
 const formSchema = z.object({
-  title: z.string().min(1, {
-    message: "This Field is required",
-  }),
+  price: z.coerce.number(),
 });
 
-export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
+export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData,
+    defaultValues: {
+      price: initialData?.price || undefined,
+    },
   });
   const [isEditing, setIsEditing] = useState(false);
   const { isSubmitting, isValid } = form.formState;
@@ -56,8 +59,8 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
   return (
     <>
       <div className="mt-6 border hover:border-black/80 hover:cursor-pointer border-black/20 rounded-md p-4">
-        <div className="font-semibold text-gray-700 flex items-center justify-between">
-          Course Title
+      <div className="font-semibold text-gray-700 flex items-center justify-between">
+          Course Price
           <Button onClick={toggleEdit} variant="ghost">
             {isEditing && <>Cancel</>}
             {!isEditing && (
@@ -68,7 +71,16 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
             )}
           </Button>
         </div>
-        {!isEditing && <p className="text-sm mt-2">{initialData.title}</p>}
+        {!isEditing && (
+          <p
+            className={cn(
+              "text-sm mt-2",
+              !initialData.price && "text-slate-500 italic"
+            )}
+          >
+            {initialData.price ? formatPrice(initialData.price) : "No Price"}
+          </p>
+        )}
         {isEditing && (
           <Form {...form}>
             <form
@@ -77,13 +89,15 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
             >
               <FormField
                 control={form.control}
-                name="title"
+                name="price"
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
                       <Input
+                        step="0.01"
+                        type="number"
                         disabled={isSubmitting}
-                        placeholder="e.g. 'Advanced JavaScript "
+                        placeholder="Set a regionable price"
                         {...field}
                       />
                     </FormControl>
@@ -103,4 +117,4 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
   );
 };
 
-export default TitleForm;
+export default PriceForm;
