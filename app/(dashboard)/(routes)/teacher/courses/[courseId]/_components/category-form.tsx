@@ -71,7 +71,7 @@ export const CategoryForm = ({
   return (
     <>
       <div className="mt-6 border hover:border-black/80 hover:cursor-pointer border-black/20 rounded-md p-4">
-      <div className="font-semibold text-gray-700 flex items-center justify-between">
+        <div className="font-semibold line-clamp-2 text-gray-700 flex items-center justify-between">
           Course Categories
           <Button onClick={toggleEdit} variant="ghost">
             {isEditing && <>Cancel</>}

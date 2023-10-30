@@ -59,7 +59,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     course.imageUrl,
     course.price,
     course.categoryId,
-    course.chapters.some(chapter => chapter.isPublished),
+    course.chapters.some((chapter) => chapter.isPublished),
   ];
   const totalFields = requiredFields.length;
   const compleletedFields = requiredFields.filter(Boolean).length;
@@ -80,7 +80,9 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
           <div>
             <div className="flex items-center gap-x-2">
               <IconBadge icon={LayoutDashboard} />
-              <h2 className="font-bold text-blue-700">Cutomise Your Course</h2>
+              <h2 className="font-bold line-clamp-1 text-blue-700">
+                Cutomise Your Course
+              </h2>
             </div>
             <TitleForm initialData={course} courseId={course.id} />
             <DescriptionForm initialData={course} courseId={course.id} />
@@ -98,21 +100,25 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
             <div className="">
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={ListChecks} />
-                <h2 className="text-blue-700 font-bold">Course Chapters</h2>
+                <h2 className="text-blue-700 line-clamp-1 font-bold">
+                  Course Chapters
+                </h2>
               </div>
             </div>
             <ChaptersForm initialData={course} courseId={course.id} />
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={CircleDollarSign} />
-                <h2 className="text-blue-700 font-bold">Sell Your Courses</h2>
+                <h2 className="text-blue-700 line-clamp-1 font-bold">
+                  Sell Your Courses
+                </h2>
               </div>
               <PriceForm initialData={course} courseId={course.id} />
             </div>
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={File} />
-                <h2 className="font-bold text-blue-700">
+                <h2 className="font-bold line-clamp-1 text-blue-700">
                   Resources & Attachments
                 </h2>
               </div>

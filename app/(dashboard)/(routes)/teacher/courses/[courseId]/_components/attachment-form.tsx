@@ -58,7 +58,7 @@ export const AttachmentForm = ({
 
   return (
     <div className="mt-6 border hover:cursor-pointer  border-black/20 hover:border-black/80 rounded-md p-4">
-      <div className="font-semibold  text-gray-700 flex items-center justify-between">
+      <div className="font-semibold line-clamp-1  text-gray-700 flex items-center justify-between">
         Course attachments
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing && <>Cancel</>}
@@ -73,7 +73,7 @@ export const AttachmentForm = ({
       {!isEditing && (
         <>
           {initialData.attachments.length === 0 && (
-            <p className="text-sm mt-2 text-slate-500 italic">
+            <p className="text-sm line-clamp-1 mt-2 text-slate-500 italic">
               No attachments yet
             </p>
           )}

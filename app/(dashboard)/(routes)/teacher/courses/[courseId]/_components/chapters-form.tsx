@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 
-// import { ChaptersList } from "./chapters-list";
+import { ChaptersList } from "./chapters-list";
 
 interface ChaptersFormProps {
   initialData: Course & { chapters: Chapter[] };
@@ -138,11 +138,11 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
           )}
         >
           {!initialData.chapters.length && "No chapters founded 😔"}
-          {/* <ChaptersList
+          <ChaptersList
             onEdit={onEdit}
             onReorder={onReorder}
             items={initialData.chapters || []}
-          /> */}
+          />
         </div>
       )}
       {!isCreating && (
