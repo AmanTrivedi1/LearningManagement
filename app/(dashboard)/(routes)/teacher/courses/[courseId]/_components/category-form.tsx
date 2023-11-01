@@ -70,10 +70,10 @@ export const CategoryForm = ({
 
   return (
     <>
-      <div className="mt-6 border hover:border-black/80 hover:cursor-pointer border-black/20 rounded-md p-4">
-        <div className="font-semibold line-clamp-2 text-gray-700 flex items-center justify-between">
+      <div className="mt-6 bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 text-text rounded-md p-4">
+        <div className="font-semibold line-clamp-2  flex items-center justify-between">
           Course Categories
-          <Button onClick={toggleEdit} variant="ghost">
+          <Button onClick={toggleEdit} className="border" variant="ghost">
             {isEditing && <>Cancel</>}
             {!isEditing && (
               <>
@@ -85,10 +85,7 @@ export const CategoryForm = ({
         </div>
         {!isEditing && (
           <p
-            className={cn(
-              "text-sm mt-2",
-              !initialData.categoryId && "text-slate-500 italic"
-            )}
+            className={cn("text-sm mt-2", !initialData.categoryId && " italic")}
           >
             {selectedOption?.label || "No Category "}
           </p>

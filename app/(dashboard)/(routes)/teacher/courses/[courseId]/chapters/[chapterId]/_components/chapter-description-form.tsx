@@ -67,10 +67,14 @@ export const ChapterDescriptionForm = ({
   };
 
   return (
-    <div className="mt-6 border border-black/20 hover:border-black/80 hover:cursor-pointer rounded-md p-4">
-      <div className="font-medium flex items-center justify-between">
+    <div className="mt-6  bg-backgroundcolor text-text  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+      <div className="font-medium flex  items-center justify-between">
         Chapter description
-        <Button onClick={toggleEdit} variant="ghost">
+        <Button
+          onClick={toggleEdit}
+          className="border border-text"
+          variant="ghost"
+        >
           {isEditing ? (
             <>Cancel</>
           ) : (
@@ -85,7 +89,7 @@ export const ChapterDescriptionForm = ({
         <div
           className={cn(
             "text-sm mt-2",
-            !initialData.description && "text-slate-500 italic"
+            !initialData.description && "text-text italic"
           )}
         >
           {!initialData.description && "No description"}
@@ -98,7 +102,7 @@ export const ChapterDescriptionForm = ({
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-4 mt-4"
+            className="space-y-4 mt-4 text-dark"
           >
             <FormField
               control={form.control}

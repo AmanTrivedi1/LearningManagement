@@ -64,21 +64,27 @@ export const ChapterTitleForm = ({
   };
 
   return (
-    <div className="mt-6 border border-black/20 hover:border-black/80 hover:cursor-pointer rounded-md p-4">
-      <div className="font-medium flex items-center justify-between">
+    <div className="mt-6 bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+      <div className="font-medium flex items-center text-text justify-between">
         Chapter title
-        <Button onClick={toggleEdit} variant="ghost">
+        <Button
+          onClick={toggleEdit}
+          className="border border-text"
+          variant="ghost"
+        >
           {isEditing ? (
             <>Cancel</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit 
+              Edit
             </>
           )}
         </Button>
       </div>
-      {!isEditing && <p className="text-sm mt-2">{initialData.title}</p>}
+      {!isEditing && (
+        <p className="text-sm text-text mt-2">{initialData.title}</p>
+      )}
       {isEditing && (
         <Form {...form}>
           <form

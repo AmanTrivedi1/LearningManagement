@@ -58,10 +58,10 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
   };
   return (
     <>
-      <div className="mt-6 border hover:border-black/80 hover:cursor-pointer border-black/20 rounded-md p-4">
-      <div className="font-semibold text-gray-700 flex items-center justify-between">
+      <div className="mt-6 bg-backgroundcolor text-text  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+        <div className="font-semibold text-text flex items-center justify-between">
           Course Price
-          <Button onClick={toggleEdit} variant="ghost">
+          <Button onClick={toggleEdit} className="border" variant="ghost">
             {isEditing && <>Cancel</>}
             {!isEditing && (
               <>
@@ -75,7 +75,7 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
           <p
             className={cn(
               "text-sm mt-2",
-              !initialData.price && "text-slate-500 italic"
+              !initialData.price && "text-text italic"
             )}
           >
             {initialData.price ? formatPrice(initialData.price) : "No Price"}
@@ -94,6 +94,7 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
                   <FormItem>
                     <FormControl>
                       <Input
+                        className="text-dark"
                         step="0.01"
                         type="number"
                         disabled={isSubmitting}

@@ -61,14 +61,14 @@ export const DescriptionForm = ({
   };
   return (
     <>
-      <div className="mt-6 border hover:border-black/80 hover:cursor-pointer border-black/20 rounded-md p-4">
-      <div className="font-semibold text-gray-700 flex items-center justify-between">
+      <div className="mt-6 text-text bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+        <div className="font-semibold  flex items-center justify-between">
           Course Description
-          <Button onClick={toggleEdit} variant="ghost">
+          <Button onClick={toggleEdit} className="border" variant="ghost">
             {isEditing && <>Cancel</>}
             {!isEditing && (
               <>
-                <PenIcon className="h-4 w-4 mr-2 " />
+                <PenIcon className="h-4   w-4 mr-2 " />
                 Edit
               </>
             )}
@@ -78,7 +78,7 @@ export const DescriptionForm = ({
           <p
             className={cn(
               "text-sm mt-2",
-              !initialData.description && "text-slate-500 italic"
+              !initialData.description && "text-text italic"
             )}
           >
             {initialData.description || "No Description "}
@@ -97,6 +97,7 @@ export const DescriptionForm = ({
                   <FormItem>
                     <FormControl>
                       <Textarea
+                        className="text-dark"
                         disabled={isSubmitting}
                         placeholder="e.g. 'This course will make you pro in JavaScript"
                         {...field}

@@ -50,12 +50,13 @@ const CreatePage = () => {
   return (
     <>
       <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
-        <div>
-          <h1 className="text-2xl">Name your course</h1>
-          <p className="text-sm text-slate-600">
+        <div className=" bg-backgroundcolor transition-all hover:cursor-pointer shadow-blue-700 px-8 rounded-md  py-6 ">
+          <h1 className="text-2xl text-slate-100">Name your course</h1>
+          <p className="text-sm text-text">
             What would you like to name your course? Don&apos;t worry, name can
             be change further.
           </p>
+
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -66,7 +67,7 @@ const CreatePage = () => {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Course title</FormLabel>
+                    <FormLabel className="text-text">Course title</FormLabel>
                     <FormControl>
                       <Input
                         disabled={isSubmitting}
@@ -74,7 +75,7 @@ const CreatePage = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-text">
                       What you gona teach in this course?
                     </FormDescription>
                     <FormMessage />
@@ -87,7 +88,11 @@ const CreatePage = () => {
                     Cancel
                   </Button>
                 </Link>
-                <Button type="submit" disabled={!isValid || isSubmitting}>
+                <Button
+                  className="bg-[#0F0F0F]"
+                  type="submit"
+                  disabled={!isValid || isSubmitting}
+                >
                   Continue
                 </Button>
               </div>

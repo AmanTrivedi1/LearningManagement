@@ -55,20 +55,26 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
   };
   return (
     <>
-      <div className="mt-6 border hover:border-black/80 hover:cursor-pointer border-black/20 rounded-md p-4">
-        <div className="font-semibold text-gray-700 flex items-center justify-between">
+      <div className="mt-6 bg-backgroundcolor shadow-lg   cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+        <div className="font-semibold text-text  flex items-center justify-between">
           Course Title
-          <Button onClick={toggleEdit} variant="ghost">
+          <Button
+            onClick={toggleEdit}
+            variant="ghost"
+            className="text-text border"
+          >
             {isEditing && <>Cancel</>}
             {!isEditing && (
               <>
-                <PenIcon className="h-4 w-4 mr-2 " />
+                <PenIcon className="h-4   w-4 mr-2 " />
                 Edit
               </>
             )}
           </Button>
         </div>
-        {!isEditing && <p className="text-sm mt-2">{initialData.title}</p>}
+        {!isEditing && (
+          <p className="text-sm text-text mt-2">{initialData.title}</p>
+        )}
         {isEditing && (
           <Form {...form}>
             <form

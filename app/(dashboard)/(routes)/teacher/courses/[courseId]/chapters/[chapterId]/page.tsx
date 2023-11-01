@@ -47,22 +47,24 @@ const ChapterIdPage = async ({
         // />
         <></>
       )}
-      <div className="p-6">
+      <div className="p-6 bg-dark ">
         <div className="flex items-center justify-between">
           <div className="w-full">
             <Link
               href={`/teacher/courses/${params.courseId}`}
               className="flex items-center text-sm hover:opacity-75 transition mb-6"
             >
-              <Button variant="ghost" className="border border-black/20">
+              <Button variant="ghost" className="border border-text text-text">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </Button>
             </Link>
-            <div className="flex items-center justify-between w-full">
+            <div className="flex items-center  justify-between w-full">
               <div className="flex flex-col gap-y-2">
-                <h1 className="text-2xl font-medium">Chapter Creation</h1>
-                <span className="text-sm text-slate-700">
+                <h1 className="text-2xl font-medium bg-gradient-to-r from-blue-700 to-slate-200 bg-clip-text text-transparent ">
+                  Chapter Creation
+                </h1>
+                <span className="text-sm text-text">
                   Complete all fields {completionText}
                 </span>
               </div>
@@ -80,9 +82,7 @@ const ChapterIdPage = async ({
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={LayoutDashboard} />
-                <h2 className="text-blue-700 font-bold">
-                  Customize your chapter
-                </h2>
+                <h2 className="text-text">Customize your chapter</h2>
               </div>
               <ChapterTitleForm
                 initialData={chapter}
@@ -98,7 +98,7 @@ const ChapterIdPage = async ({
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={Eye} />
-                <h2 className="text-blue-700 font-bold">Access Settings</h2>
+                <h2 className="text-text font-bold">Access Settings</h2>
               </div>
               <ChapterAccessForm
                 initialData={chapter}
@@ -110,7 +110,7 @@ const ChapterIdPage = async ({
           <div>
             <div className="flex items-center gap-x-2">
               <IconBadge icon={Video} />
-              <h2 className="text-blue-700 font-bold">Add a video</h2>
+              <h2 className="text-text  font-bold">Add a video</h2>
             </div>
             <ChapterVideoForm
               initialData={chapter}

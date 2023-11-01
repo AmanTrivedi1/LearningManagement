@@ -38,14 +38,14 @@ export const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
   };
   return (
     <>
-      <div className="mt-6 border hover:border-black/80 hover:cursor-pointer border-black/20 rounded-md p-4">
-      <div className="font-semibold text-gray-700 flex items-center justify-between">
+      <div className="mt-6 bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+        <div className="font-semibold text-text flex items-center justify-between">
           Thumbnail Image
-          <Button onClick={toggleEdit} variant="ghost">
+          <Button onClick={toggleEdit} className="border" variant="ghost">
             {isEditing && <>Cancel</>}
             {!isEditing && !initialData.imageUrl && (
               <>
-                <PlusCircle className="h-4 w-4 mr-4" />
+                <PlusCircle className="h-4 w-4  mr-4" />
                 Add Image
               </>
             )}
@@ -59,8 +59,8 @@ export const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
         </div>
         {!isEditing &&
           (!initialData.imageUrl ? (
-            <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
-              <ImageIcon className="w-10 h-10 " />
+            <div className="flex items-center justify-center h-60 bg-text mt-4 rounded-md">
+              <ImageIcon className="w-10 h-10 text-backgroundcolor " />
             </div>
           ) : (
             <div className="relative aspect-video mt-2">
@@ -86,7 +86,7 @@ export const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
               endpoint="courseImage"
             />
 
-            <div className="text-xs text-muted-foreground mt-4">
+            <div className="text-xs text-muted-foreground text-text mt-4">
               16:9 Aspect Ratio
             </div>
           </div>

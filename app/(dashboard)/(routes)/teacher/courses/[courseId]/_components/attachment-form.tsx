@@ -57,10 +57,10 @@ export const AttachmentForm = ({
   };
 
   return (
-    <div className="mt-6 border hover:cursor-pointer  border-black/20 hover:border-black/80 rounded-md p-4">
-      <div className="font-semibold line-clamp-1  text-gray-700 flex items-center justify-between">
+    <div className="mt-6 bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+      <div className="font-semibold line-clamp-1  text-text flex items-center justify-between">
         Course attachments
-        <Button onClick={toggleEdit} variant="ghost">
+        <Button onClick={toggleEdit} className="border mb-4" variant="ghost">
           {isEditing && <>Cancel</>}
           {!isEditing && (
             <>
@@ -73,7 +73,7 @@ export const AttachmentForm = ({
       {!isEditing && (
         <>
           {initialData.attachments.length === 0 && (
-            <p className="text-sm line-clamp-1 mt-2 text-slate-500 italic">
+            <p className="text-sm line-clamp-1 mt-2 text-text italic">
               No attachments yet
             </p>
           )}
@@ -82,13 +82,13 @@ export const AttachmentForm = ({
               {initialData.attachments.map((attachment) => (
                 <div
                   key={attachment.id}
-                  className="flex items-center p-3 w-full bg-blue-100 border-blue-700 border text-blue-700 rounded-md"
+                  className="flex items-center p-3 w-full   border-text border  text-text rounded-md"
                 >
                   <File className="h-4 w-4 mr-2 flex-shrink-0" />
                   <p className="text-xs line-clamp-1">{attachment.name}</p>
                   {deletingId === attachment.id && (
                     <div>
-                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4 text-text animate-spin" />
                     </div>
                   )}
                   {deletingId !== attachment.id && (
@@ -115,7 +115,7 @@ export const AttachmentForm = ({
               }
             }}
           />
-          <div className="text-xs text-muted-foreground mt-4">
+          <div className="text-xs text-text text-muted-foreground mt-4">
             Add anything your students might need to complete the course.
           </div>
         </div>

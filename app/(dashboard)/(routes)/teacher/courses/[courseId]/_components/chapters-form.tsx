@@ -83,20 +83,20 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
   };
 
   return (
-    <div className="relative mt-6  border border-black/20 hover:border-black/80 hover:cursor-pointer rounded-md p-4">
+    <div className="relative mt-6  bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
       {isUpdating && (
         <div className="absolute h-full w-full bg-slate-500/20 top-0 right-0 rounded-m flex items-center justify-center">
-          <Loader2 className="animate-spin h-6 w-6 text-sky-700" />
+          <Loader2 className="animate-spin h-6 w-6 text-blue-700" />
         </div>
       )}
-      <div className="font-semibold text-gray-700 flex items-center justify-between">
+      <div className="font-semibold text-text flex items-center justify-between">
         Course chapters
-        <Button onClick={toggleCreating} variant="ghost">
+        <Button onClick={toggleCreating} className="border" variant="ghost">
           {isCreating ? (
             <>Cancel</>
           ) : (
             <>
-              <PlusCircle className="h-4 w-4 mr-2" />
+              <PlusCircle className="h-4  w-4 mr-2" />
               Add a chapter
             </>
           )}
@@ -134,7 +134,7 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
         <div
           className={cn(
             "text-sm mt-2",
-            !initialData.chapters.length && "text-slate-500 italic"
+            !initialData.chapters.length && "text-text italic"
           )}
         >
           {!initialData.chapters.length && "No chapters founded 😔"}
@@ -146,7 +146,7 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
         </div>
       )}
       {!isCreating && (
-        <p className="text-xs text-muted-foreground mt-4">
+        <p className="text-xs text-text text-muted-foreground mt-4">
           Drag and drop to reorder the chapters
         </p>
       )}

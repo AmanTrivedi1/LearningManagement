@@ -67,11 +67,13 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 
   return (
     <>
-      <div className="p-6">
+      <div className="p-6 bg-dark">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-2">
-            <h1 className="text-2xl font-medium">Course Setup</h1>
-            <span className="text-sm text-gray-700 ">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-slate-200 bg-clip-text text-transparent">
+              Course Setup
+            </h1>
+            <span className="text-sm text-text ">
               Complete All Required Field{completiontext}{" "}
             </span>
           </div>
@@ -80,7 +82,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
           <div>
             <div className="flex items-center gap-x-2">
               <IconBadge icon={LayoutDashboard} />
-              <h2 className="font-bold line-clamp-1 text-blue-700">
+              <h2 className="font-bold line-clamp-1 text-text">
                 Cutomise Your Course
               </h2>
             </div>
@@ -100,7 +102,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
             <div className="">
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={ListChecks} />
-                <h2 className="text-blue-700 line-clamp-1 font-bold">
+                <h2 className="text-text line-clamp-1 font-bold">
                   Course Chapters
                 </h2>
               </div>
@@ -109,7 +111,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={CircleDollarSign} />
-                <h2 className="text-blue-700 line-clamp-1 font-bold">
+                <h2 className="text-text line-clamp-1 font-bold">
                   Sell Your Courses
                 </h2>
               </div>
@@ -118,7 +120,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={File} />
-                <h2 className="font-bold line-clamp-1 text-blue-700">
+                <h2 className="font-bold line-clamp-1 text-text">
                   Resources & Attachments
                 </h2>
               </div>

@@ -49,10 +49,14 @@ export const ChapterVideoForm = ({
   };
 
   return (
-    <div className="mt-6 border hover:border-black/80 border-black/20 hover:cursor-pointer rounded-md p-4">
+    <div className="mt-6 bg-backgroundcolor text-text  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
         Chapter video
-        <Button onClick={toggleEdit} variant="ghost">
+        <Button
+          onClick={toggleEdit}
+          className="mb-4 border border-text"
+          variant="ghost"
+        >
           {isEditing && <>Cancel</>}
           {!isEditing && !initialData.videoUrl && (
             <>
@@ -70,8 +74,8 @@ export const ChapterVideoForm = ({
       </div>
       {!isEditing &&
         (!initialData.videoUrl ? (
-          <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
-            <Video className="h-10 w-10 text-slate-500" />
+          <div className="flex items-center justify-center h-60 bg-text rounded-md">
+            <Video className="h-10 w-10 text-backgroundcolor" />
           </div>
         ) : (
           <div className="relative aspect-video mt-2">
@@ -88,14 +92,15 @@ export const ChapterVideoForm = ({
               }
             }}
           />
-          <div className="text-xs text-muted-foreground mt-4">
+          <div className="text-xs text-text text-muted-foreground mt-4">
             Upload this chapter&apos;s video
           </div>
         </div>
       )}
       {initialData.videoUrl && !isEditing && (
-        <div className="text-xs text-muted-foreground mt-2">
-          Videos can take a few minutes to process. Refresh the page if video
+        <div className="text-xs text-muted-foreground text-text mt-2">
+          Videos can take a few minutes to process.{" "}
+          <span className="text-blue-700">(Refresh the page)</span> if video
           does not appear.
         </div>
       )}

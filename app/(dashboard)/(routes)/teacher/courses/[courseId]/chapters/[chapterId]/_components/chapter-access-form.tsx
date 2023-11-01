@@ -69,16 +69,20 @@ export const ChapterAccessForm = ({
   };
 
   return (
-    <div className="mt-6 border border-black/20  hover:border-black/80 hover:cursor-pointer rounded-md p-4">
-      <div className="font-medium flex items-center justify-between">
+    <div className="mt-6 bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md p-4">
+      <div className="font-medium flex text-text items-center justify-between">
         Chapter access
-        <Button onClick={toggleEdit} variant="ghost">
+        <Button
+          onClick={toggleEdit}
+          className="border border-text"
+          variant="ghost"
+        >
           {isEditing ? (
             <>Cancel</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit 
+              Edit
             </>
           )}
         </Button>
@@ -110,12 +114,13 @@ export const ChapterAccessForm = ({
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                   <FormControl>
                     <Checkbox
+                      className="bg-text "
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormDescription>
+                    <FormDescription className="text-text">
                       Check this box if you want to make this chapter free for
                       preview
                     </FormDescription>
