@@ -12,7 +12,14 @@ async function main() {
         { name: "TypeScript" },
         { name: "Motivation" },
         { name: "Hacking" },
-        { name: "Acting " },
+        { name: "Low Latency " },
+        { name: "Next Js " },
+        { name: "Node Js " },
+        { name: "Express Js" },
+        { name: "Tailwind Css " },
+        { name: "Sass " },
+        { name: "Git & Github" },
+        { name: "Three.Js" },
       ],
     });
 
