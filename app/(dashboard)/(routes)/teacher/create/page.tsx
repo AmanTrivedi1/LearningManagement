@@ -50,7 +50,7 @@ const CreatePage = () => {
   return (
     <>
       <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
-        <div className=" bg-backgroundcolor transition-all hover:cursor-pointer shadow-blue-700 px-8 rounded-md  py-6 ">
+        <div className=" bg-backgroundcolor  cursor-pointer hover:shadow-lg hover:shadow-slate-600 rounded-md px-6  py-6 ">
           <h1 className="text-2xl text-slate-100">Name your course</h1>
           <p className="text-sm text-text">
             What would you like to name your course? Don&apos;t worry, name can
@@ -70,6 +70,7 @@ const CreatePage = () => {
                     <FormLabel className="text-text">Course title</FormLabel>
                     <FormControl>
                       <Input
+                        className="text-dark"
                         disabled={isSubmitting}
                         placeholder="e.g. 'Advanced Javascript'"
                         {...field}

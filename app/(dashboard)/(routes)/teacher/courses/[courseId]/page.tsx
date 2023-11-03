@@ -15,6 +15,8 @@ import CategoryForm from "./_components/category-form";
 import PriceForm from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
 import { ChaptersForm } from "./_components/chapters-form";
+import { Banner } from "@/components/banner";
+import { Actions } from "./_components/actions";
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -64,19 +66,28 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const totalFields = requiredFields.length;
   const compleletedFields = requiredFields.filter(Boolean).length;
   const completiontext = `(${compleletedFields}/${totalFields})`;
+  const isComplete = requiredFields.every(Boolean);
 
   return (
     <>
+      {!course.isPublished && (
+        <Banner label="Look's like this course isunpublished. It will not be visible to the users." />
+      )}
       <div className="p-6 bg-dark">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-2">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-slate-200 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold  bg-gradient-to-r from-blue-700 to-slate-200 bg-clip-text text-transparent">
               Course Setup
             </h1>
             <span className="text-sm text-text ">
-              Complete All Required Field{completiontext}{" "}
+              Required Field{completiontext}{" "}
             </span>
           </div>
+          <Actions
+            disabled={!isComplete}
+            courseId={params.courseId}
+            isPublished={course.isPublished}
+          />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16 ">
           <div>

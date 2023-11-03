@@ -5,7 +5,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="h-full bg-dark">
-        <div className="h-[60px] border-b border-backgroundcolor md:pl-56 fixed inset-y-0 w-full z-50">
+        <div className="h-[60px]  md:pl-56 fixed inset-y-0 w-full z-50">
           <Navbar />
         </div>
         <div className="hidden md:flex h-full w-72 flex-col fixed inset-y-0 z-50">
