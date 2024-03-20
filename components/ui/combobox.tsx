@@ -53,8 +53,7 @@ export const Combobox = ({ options, value, onChange }: ComboboxProps) => {
                 onSelect={() => {
                   onChange(option.value === value ? "" : option.value);
                   setOpen(false);
-                }}
-              >
+                }} >
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
